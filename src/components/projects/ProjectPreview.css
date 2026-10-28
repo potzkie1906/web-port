@@ -1,0 +1,334 @@
+/* Project illustrations (until real screenshots are added). */
+.pv {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pv-bg {
+  fill: var(--map-bg);
+}
+
+.pv-bg--app {
+  fill: var(--bg-elevated);
+}
+
+.pv-water {
+  fill: var(--map-water);
+}
+
+.pv-block {
+  fill: var(--map-block);
+}
+
+.pv-text {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  fill: var(--text);
+}
+
+.pv-text--muted {
+  fill: var(--text-muted);
+}
+
+.pv-text--title {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.pv-skeleton {
+  fill: var(--surface-2);
+}
+
+.pv-panel,
+.pv-label {
+  fill: var(--glass-bg-strong);
+  stroke: var(--border);
+}
+
+/* ---------- TransitHub map ---------- */
+.pv-casing {
+  fill: none;
+  stroke: var(--map-bg);
+  stroke-width: 11;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pv-route {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pv-route--violet {
+  stroke: var(--violet-vivid);
+}
+
+.pv-route--cyan {
+  stroke: var(--cyan-vivid);
+}
+
+.pv-route--blue {
+  stroke: var(--blue-vivid);
+}
+
+.pv-flow {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1.5 98.5;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.pv-stop {
+  fill: var(--map-bg);
+  stroke-width: 3;
+}
+
+.pv-stop--violet {
+  stroke: var(--violet-vivid);
+}
+
+.pv-stop--cyan {
+  stroke: var(--cyan-vivid);
+}
+
+.pv-stop--blue {
+  stroke: var(--blue-vivid);
+}
+
+.pv-terminal {
+  fill: var(--text);
+}
+
+.pv-terminal-core {
+  fill: var(--map-bg);
+}
+
+/* ---------- LifeHub dashboard ---------- */
+.pv-window {
+  fill: var(--surface-solid);
+  stroke: var(--border);
+}
+
+.pv-sidebar {
+  fill: var(--surface-2);
+}
+
+.pv-nav {
+  fill: var(--border-strong);
+}
+
+.pv-nav--active {
+  fill: var(--cyan-vivid);
+}
+
+.pv-avatar {
+  fill: color-mix(in srgb, var(--violet-vivid) 45%, var(--surface-2));
+}
+
+.pv-card {
+  fill: var(--surface-2);
+  stroke: var(--border);
+}
+
+.pv-check {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+
+.pv-task--done .pv-check {
+  fill: var(--cyan-vivid);
+  stroke: var(--cyan-vivid);
+}
+
+.pv-checkmark {
+  fill: none;
+  stroke: var(--surface-solid);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.pv-dot--cyan {
+  fill: var(--cyan-vivid);
+}
+
+.pv-dot--violet {
+  fill: var(--violet-vivid);
+}
+
+.pv-dot--blue {
+  fill: var(--blue-vivid);
+}
+
+.pv-pill {
+  fill: color-mix(in srgb, var(--amber) 22%, transparent);
+}
+
+.pv-bar {
+  fill: color-mix(in srgb, var(--blue-vivid) 45%, var(--surface-2));
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transition: scale 0.6s var(--ease-spring);
+}
+
+.pv-bar--accent {
+  fill: var(--cyan-vivid);
+}
+
+.pv-chip {
+  fill: var(--surface-solid);
+  stroke: var(--border);
+}
+
+/* ---------- SafeTrack ---------- */
+.pv-alert {
+  fill: var(--danger);
+}
+
+.pv-alert-mark {
+  fill: none;
+  stroke: var(--surface-solid);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.pv-pulse {
+  fill: none;
+  stroke: var(--danger);
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pv-alert-chip {
+  fill: color-mix(in srgb, var(--danger) 28%, transparent);
+}
+
+.pv-pin--blue {
+  fill: var(--blue-vivid);
+}
+
+.pv-pin--violet {
+  fill: var(--violet-vivid);
+}
+
+.pv-pin--cyan {
+  fill: var(--cyan-vivid);
+}
+
+/* ---------- Lost and Found ---------- */
+.pv-search {
+  fill: var(--surface-solid);
+  stroke: var(--border-strong);
+}
+
+.pv-search-icon {
+  fill: none;
+  stroke: var(--text-subtle);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.pv-thumb {
+  fill: var(--surface-2);
+}
+
+.pv-tag {
+  fill-opacity: 0.18;
+}
+
+.pv-tag--amber {
+  fill: var(--amber);
+}
+
+.pv-tag--cyan {
+  fill: var(--cyan-vivid);
+}
+
+.pv-tag--violet {
+  fill: var(--violet-vivid);
+}
+
+.pv-tag-text {
+  font-weight: 600;
+}
+
+.pv-tag-text--amber {
+  fill: var(--amber);
+}
+
+.pv-tag-text--cyan {
+  fill: var(--cyan);
+}
+
+.pv-tag-text--violet {
+  fill: var(--violet);
+}
+
+/* ---------- Hover: the illustrations come alive ---------- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .project:hover .pv-flow {
+    opacity: 0.95;
+    animation: pv-flow 3.4s linear infinite;
+  }
+
+  .project:hover .pv-flow--late {
+    animation-delay: -1.2s;
+  }
+
+  .project:hover .pv-flow--slow {
+    animation-duration: 4.6s;
+  }
+
+  .project:hover .pv-bar {
+    scale: 1 1.18;
+  }
+
+  .project:hover .pv-checkmark {
+    animation: pv-check 0.6s var(--ease-out);
+  }
+
+  .project:hover .pv-pulse {
+    animation: pv-pulse 2s var(--ease-out) infinite;
+  }
+
+  .project:hover .pv-pulse--late {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes pv-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes pv-check {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes pv-pulse {
+  from {
+    opacity: 0.9;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 2.6;
+  }
+}

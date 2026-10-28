@@ -1,591 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- TODO: Update the title/description once your content is final. -->
-  <title>Rodrigo B. Alderite Jr. — IT Student &amp; Web Developer</title>
-  <meta name="description" content="Portfolio of Rodrigo B. Alderite Jr., an IT student at Batangas State University (Alangilan) building clean, accessible web experiences." />
-  <meta name="color-scheme" content="dark light" />
-  <meta name="theme-color" content="#0A1200" />
+    <!--
+      SEO and link previews. These tags are read before any JavaScript runs,
+      so they live here instead of src/config/site.ts. Keep them in sync.
+    -->
+    <title>Rodrigo B. Alderite Jr. | IT student who builds full-stack projects</title>
+    <meta
+      name="description"
+      content="Portfolio of Rodrigo B. Alderite Jr., an Information Technology student at Batangas State University who builds full-stack projects with Spring Boot, Node.js, React and PostgreSQL."
+    />
+    <meta name="author" content="Rodrigo B. Alderite Jr." />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0c0f16" />
 
-  <!--
-    ===== NO-FLASH THEME SCRIPT =====
-    This tiny script runs BEFORE the stylesheet is applied, so the page paints
-    in the correct theme on the very first frame (no "flash" of the wrong theme).
-    Order of priority: saved choice in localStorage -> OS preference -> dark.
-    It also adds a "js" class so CSS knows JavaScript is available
-    (used to hide scroll-reveal elements only when JS can reveal them again).
-    It is intentionally inline; everything else lives in script.js.
-  -->
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var theme = null;
-      try { theme = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
-      if (theme !== 'light' && theme !== 'dark') {
-        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
-      root.setAttribute('data-theme', theme);
-      root.classList.add('js');
-    })();
-  </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rodrigo B. Alderite Jr." />
+    <meta property="og:title" content="Rodrigo B. Alderite Jr. | Portfolio" />
+    <meta
+      property="og:description"
+      content="IT student at Batangas State University building full-stack projects: TransitHub and LifeHub."
+    />
+    <!-- After you deploy, change this to the full address, e.g. https://your-site.com/og-image.png -->
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Rodrigo B. Alderite Jr., IT student building full-stack projects"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google Fonts: Space Grotesk (headings) + Inter (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-
-<body>
-  <!-- ===== SVG ICON SPRITE (reused with <use href="#icon-...">) ===== -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="icon-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </symbol>
-    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="m22 6-10 7L2 6" />
-    </symbol>
-    <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-      <path d="M15 3h6v6M10 14 21 3" />
-    </symbol>
-    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </symbol>
-    <symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 19V5M5 12l7-7 7 7" />
-    </symbol>
-    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </symbol>
-  </svg>
-
-  <!-- Skip link: lets keyboard users jump past the navbar -->
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- =====================================================================
-       NAVBAR
-       ===================================================================== -->
-  <header class="navbar" id="navbar">
-    <nav class="navbar__inner container" aria-label="Primary">
-      <a href="#home" class="navbar__logo" aria-label="Rodrigo Alderite — back to top">
-        RA<span class="navbar__logo-dot">.</span>
-      </a>
-
-      <ul class="navbar__links" id="nav-menu">
-        <li><a href="#about" class="navbar__link">About</a></li>
-        <li><a href="#skills" class="navbar__link">Skills</a></li>
-        <li><a href="#projects" class="navbar__link">Projects</a></li>
-        <li><a href="#experience" class="navbar__link">Experience</a></li>
-        <li><a href="#contact" class="navbar__link">Contact</a></li>
-      </ul>
-
-      <div class="navbar__actions">
-        <!-- Theme toggle: the label is updated by script.js to describe the action -->
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
-          <svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <mask id="theme-toggle-mask">
-              <rect x="0" y="0" width="24" height="24" fill="#fff" />
-              <circle class="theme-toggle__mask" cx="18" cy="6" r="7" fill="#000" />
-            </mask>
-            <circle class="theme-toggle__core" cx="12" cy="12" r="9" fill="currentColor" mask="url(#theme-toggle-mask)" />
-            <g class="theme-toggle__rays" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </g>
-          </svg>
-        </button>
-
-        <!-- Hamburger: only visible on small screens -->
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-          <span class="hamburger__bar"></span>
-          <span class="hamburger__bar"></span>
-          <span class="hamburger__bar"></span>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <main id="main">
-    <!-- =====================================================================
-         HERO
-         ===================================================================== -->
-    <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- Decorative animated background: blurred gradient blobs + film grain -->
-      <div class="hero__bg" aria-hidden="true">
-        <span class="blob blob--1"></span>
-        <span class="blob blob--2"></span>
-        <span class="blob blob--3"></span>
-        <span class="hero__grain"></span>
-      </div>
-
-      <div class="hero__content container">
-        <p class="hero__eyebrow reveal">
-          <span class="status-dot" aria-hidden="true"></span>
-          <!-- TODO: Update your availability -->
-          Open to internships &amp; freelance work
-        </p>
-
-        <h1 class="hero__title reveal" id="hero-title">
-          <span class="hero__hello">Hi, I'm</span>
-          <span class="gradient-text">Rodrigo B. Alderite Jr.</span>
-        </h1>
-
-        <!--
-          Rotating role title. Screen readers get the full sentence from the
-          visually-hidden span; the animated text is hidden from them.
-          Edit the roles in the data-roles attribute (separated by "|").
-        -->
-        <p class="hero__role reveal">
-          <span class="visually-hidden">IT student, front-end developer and lifelong learner.</span>
-          <span aria-hidden="true">I'm&nbsp;<span class="typed" id="typed"
-            data-roles="an IT Student|a Front-End Developer|a Java Programmer|a Problem Solver|a Lifelong Learner">an IT Student</span><span class="typed-caret"></span></span>
-        </p>
-
-        <!-- TODO: Write your own one-line pitch -->
-        <p class="hero__lead reveal">
-          Information Technology student at Batangas State University&nbsp;— Alangilan,
-          building clean, accessible and fast web experiences one project at a time.
-        </p>
-
-        <div class="hero__cta reveal">
-          <a href="#projects" class="btn btn--primary">
-            View my work
-            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
-          </a>
-          <a href="#contact" class="btn btn--ghost">Get in touch</a>
-        </div>
-
-        <ul class="hero__socials reveal" aria-label="Social links">
-          <!-- TODO: Confirm your GitHub URL -->
-          <li><a href="https://github.com/potzkie1906" target="_blank" rel="noopener" aria-label="GitHub profile">
-            <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg></a></li>
-          <!-- TODO: Replace with your LinkedIn URL -->
-          <li><a href="https://www.linkedin.com/in/your-linkedin-handle" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin" /></svg></a></li>
-          <!-- TODO: Replace with your email -->
-          <li><a href="mailto:your.email@example.com" aria-label="Send me an email">
-            <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg></a></li>
-        </ul>
-      </div>
-
-      <a href="#about" class="hero__scroll" aria-label="Scroll to About section">
-        <span class="hero__scroll-mouse" aria-hidden="true"></span>
-      </a>
-    </section>
-
-    <div class="divider" aria-hidden="true"></div>
-
-    <!-- =====================================================================
-         ABOUT
-         ===================================================================== -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <header class="section__header reveal">
-          <p class="section__kicker">01 — About</p>
-          <h2 class="section__title" id="about-title">A little about me</h2>
-        </header>
-
-        <div class="about">
-          <!--
-            TODO: Replace this initials avatar with your photo, e.g.
-            <img class="about__photo" src="images/rodrigo.jpg" alt="Portrait of Rodrigo Alderite" width="320" height="380">
-          -->
-          <div class="about__avatar reveal" aria-hidden="true">
-            <span>RA</span>
-          </div>
-
-          <div class="about__text">
-            <!-- TODO: Rewrite these paragraphs in your own voice -->
-            <p class="reveal">
-              I'm <strong>Rodrigo B. Alderite Jr.</strong>, an Information Technology student at the
-              <strong>College of Informatics and Computing Sciences</strong>, Batangas State University —
-              Alangilan Campus. I enjoy turning ideas into interfaces that feel simple, fast and friendly.
-            </p>
-            <p class="reveal">
-              Most of my time goes into front-end development with HTML, CSS and JavaScript, while my
-              coursework keeps me sharp in Java, databases and systems analysis. I like learning by
-              building — every project here started as "I wonder if I can make that."
-            </p>
-            <p class="reveal">
-              When I'm not coding, you'll probably find me exploring new tech, gaming, or helping
-              classmates debug their projects.
-            </p>
-
-            <ul class="facts reveal" aria-label="Quick facts">
-              <!-- TODO: Adjust these quick facts -->
-              <li><span class="facts__label">Based in</span> Batangas, Philippines</li>
-              <li><span class="facts__label">Studying</span> BS Information Technology</li>
-              <li><span class="facts__label">Focus</span> Front-end &amp; web apps</li>
-              <li><span class="facts__label">Status</span> Open to internships</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider" aria-hidden="true"></div>
-
-    <!-- =====================================================================
-         SKILLS
-         ===================================================================== -->
-    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <header class="section__header reveal">
-          <p class="section__kicker">02 — Skills</p>
-          <h2 class="section__title" id="skills-title">What I work with</h2>
-        </header>
-
-        <!--
-          Each skill bar reads its fill from the --level custom property.
-          TODO: Adjust levels (0–100%) to honestly reflect your skills.
-        -->
-        <div class="skills">
-          <article class="skill-group reveal">
-            <h3 class="skill-group__title">Front-end</h3>
-            <ul class="skill-bars">
-              <li class="skill-bar" style="--level: 90%">
-                <div class="skill-bar__head"><span>HTML</span><span class="skill-bar__value">90%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-              <li class="skill-bar" style="--level: 85%">
-                <div class="skill-bar__head"><span>CSS</span><span class="skill-bar__value">85%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-              <li class="skill-bar" style="--level: 75%">
-                <div class="skill-bar__head"><span>JavaScript</span><span class="skill-bar__value">75%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-            </ul>
-          </article>
-
-          <article class="skill-group reveal">
-            <h3 class="skill-group__title">Programming &amp; Data</h3>
-            <ul class="skill-bars">
-              <li class="skill-bar" style="--level: 75%">
-                <div class="skill-bar__head"><span>Java</span><span class="skill-bar__value">75%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-              <li class="skill-bar" style="--level: 70%">
-                <div class="skill-bar__head"><span>SQL / MySQL</span><span class="skill-bar__value">70%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-              <li class="skill-bar" style="--level: 70%">
-                <div class="skill-bar__head"><span>Git &amp; GitHub</span><span class="skill-bar__value">70%</span></div>
-                <div class="skill-bar__track" aria-hidden="true"><span class="skill-bar__fill"></span></div>
-              </li>
-            </ul>
-          </article>
-
-          <article class="skill-group reveal">
-            <h3 class="skill-group__title">Tools &amp; Also Familiar</h3>
-            <!-- TODO: Add/remove tools you actually use -->
-            <ul class="tags">
-              <li class="tag">VS Code</li>
-              <li class="tag">GitHub</li>
-              <li class="tag">Figma</li>
-              <li class="tag">PHP</li>
-              <li class="tag">Python</li>
-              <li class="tag">Responsive Design</li>
-              <li class="tag">Accessibility</li>
-              <li class="tag">Linux</li>
-              <li class="tag">Networking Basics</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider" aria-hidden="true"></div>
-
-    <!-- =====================================================================
-         PROJECTS
-         ===================================================================== -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section__header reveal">
-          <p class="section__kicker">03 — Projects</p>
-          <h2 class="section__title" id="projects-title">Things I've built</h2>
-        </header>
-
-        <!--
-          TODO: Replace all four projects with your own.
-          The thumbnail is a CSS gradient placeholder. To use a screenshot, replace
-          <div class="project-card__thumb ..."> with:
-          <img class="project-card__thumb" src="images/project.png" alt="Screenshot of ..." loading="lazy">
-        -->
-        <div class="projects">
-          <article class="project-card reveal">
-            <div class="project-card__thumb project-card__thumb--1" aria-hidden="true"><span>{ }</span></div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">CICS Event Hub</h3>
-              <p class="project-card__desc">
-                A web app where students browse and register for college events, with an admin
-                dashboard for organizers to track attendees.
-              </p>
-              <ul class="project-card__tech" aria-label="Technologies used">
-                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
-              </ul>
-              <div class="project-card__links">
-                <a href="https://github.com/potzkie1906" target="_blank" rel="noopener">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg> Code
-                  <span class="visually-hidden">for CICS Event Hub (opens in a new tab)</span>
-                </a>
-                <a href="https://example.com/your-live-demo" target="_blank" rel="noopener"> <!-- TODO: live demo URL -->
-                  <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg> Live demo
-                  <span class="visually-hidden">of CICS Event Hub (opens in a new tab)</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-card__thumb project-card__thumb--2" aria-hidden="true"><span>&lt;/&gt;</span></div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Library Management System</h3>
-              <p class="project-card__desc">
-                A desktop app for managing book inventory, borrowers and due dates, with search,
-                overdue alerts and printable reports.
-              </p>
-              <ul class="project-card__tech" aria-label="Technologies used">
-                <li>Java</li><li>Swing</li><li>JDBC</li><li>MySQL</li>
-              </ul>
-              <div class="project-card__links">
-                <a href="https://github.com/potzkie1906" target="_blank" rel="noopener">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg> Code
-                  <span class="visually-hidden">for Library Management System (opens in a new tab)</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-card__thumb project-card__thumb--3" aria-hidden="true"><span>₱</span></div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Budget Buddy</h3>
-              <p class="project-card__desc">
-                A student-friendly expense tracker that saves data in the browser and visualizes
-                spending by category with simple charts.
-              </p>
-              <ul class="project-card__tech" aria-label="Technologies used">
-                <li>JavaScript</li><li>localStorage</li><li>Chart.js</li><li>CSS Grid</li>
-              </ul>
-              <div class="project-card__links">
-                <a href="https://github.com/potzkie1906" target="_blank" rel="noopener">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg> Code
-                  <span class="visually-hidden">for Budget Buddy (opens in a new tab)</span>
-                </a>
-                <a href="https://example.com/your-live-demo" target="_blank" rel="noopener"> <!-- TODO: live demo URL -->
-                  <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg> Live demo
-                  <span class="visually-hidden">of Budget Buddy (opens in a new tab)</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-card__thumb project-card__thumb--4" aria-hidden="true"><span>☀</span></div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">WeatherNow PH</h3>
-              <p class="project-card__desc">
-                A responsive weather dashboard that fetches live forecasts from a public API and
-                remembers your favorite Philippine cities.
-              </p>
-              <ul class="project-card__tech" aria-label="Technologies used">
-                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>REST API</li>
-              </ul>
-              <div class="project-card__links">
-                <a href="https://github.com/potzkie1906" target="_blank" rel="noopener">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg> Code
-                  <span class="visually-hidden">for WeatherNow PH (opens in a new tab)</span>
-                </a>
-                <a href="https://example.com/your-live-demo" target="_blank" rel="noopener"> <!-- TODO: live demo URL -->
-                  <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg> Live demo
-                  <span class="visually-hidden">of WeatherNow PH (opens in a new tab)</span>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider" aria-hidden="true"></div>
-
-    <!-- =====================================================================
-         EXPERIENCE & EDUCATION (timeline)
-         ===================================================================== -->
-    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
-      <div class="container">
-        <header class="section__header reveal">
-          <p class="section__kicker">04 — Journey</p>
-          <h2 class="section__title" id="experience-title">Experience &amp; Education</h2>
-        </header>
-
-        <!-- TODO: Replace dates, roles and descriptions with your real history -->
-        <ol class="timeline">
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <p class="timeline__date">2023 — Present</p>
-            <h3 class="timeline__title">BS Information Technology</h3>
-            <p class="timeline__org">Batangas State University — Alangilan · College of Informatics and Computing Sciences</p>
-            <p class="timeline__desc">
-              Coursework in web development, object-oriented programming (Java), database management
-              systems, networking and systems analysis &amp; design.
-            </p>
-          </li>
-
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <p class="timeline__date">2024 — Present</p>
-            <h3 class="timeline__title">Freelance Web Developer</h3>
-            <p class="timeline__org">Self-employed · Remote</p>
-            <p class="timeline__desc">
-              Built landing pages and small websites for local businesses and student organizations,
-              focusing on responsive layouts and fast load times.
-            </p>
-          </li>
-
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <p class="timeline__date">2024 — Present</p>
-            <h3 class="timeline__title">Member, Student Tech Organization</h3>
-            <p class="timeline__org">CICS Student Organization · BatStateU — Alangilan</p>
-            <p class="timeline__desc">
-              Helped run coding workshops and assisted in building the organization's event pages.
-            </p>
-          </li>
-
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <p class="timeline__date">2021 — 2023</p>
-            <h3 class="timeline__title">Senior High School — STEM / ICT Strand</h3>
-            <p class="timeline__org">Your Senior High School · Batangas</p>
-            <p class="timeline__desc">
-              Graduated with honors; first exposure to programming through a capstone project.
-            </p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <div class="divider" aria-hidden="true"></div>
-
-    <!-- =====================================================================
-         CONTACT
-         ===================================================================== -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <header class="section__header reveal">
-          <p class="section__kicker">05 — Contact</p>
-          <h2 class="section__title" id="contact-title">Let's build something together</h2>
-          <p class="section__intro">
-            Have an internship opportunity, a project idea, or just want to say hi?
-            My inbox is always open.
-          </p>
-        </header>
-
-        <div class="contact">
-          <ul class="contact__list reveal">
-            <li>
-              <!-- TODO: Replace with your email (also update the href) -->
-              <a class="contact-card" href="mailto:your.email@example.com">
-                <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
-                <span><span class="contact-card__label">Email</span>your.email@example.com</span>
-              </a>
-            </li>
-            <li>
-              <!-- TODO: Confirm your GitHub URL -->
-              <a class="contact-card" href="https://github.com/potzkie1906" target="_blank" rel="noopener">
-                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
-                <span><span class="contact-card__label">GitHub</span>github.com/potzkie1906</span>
-              </a>
-            </li>
-            <li>
-              <!-- TODO: Replace with your LinkedIn URL -->
-              <a class="contact-card" href="https://www.linkedin.com/in/your-linkedin-handle" target="_blank" rel="noopener">
-                <svg class="icon" aria-hidden="true"><use href="#icon-linkedin" /></svg>
-                <span><span class="contact-card__label">LinkedIn</span>in/your-linkedin-handle</span>
-              </a>
-            </li>
-            <li>
-              <div class="contact-card contact-card--static">
-                <svg class="icon" aria-hidden="true"><use href="#icon-pin" /></svg>
-                <span><span class="contact-card__label">Location</span>Batangas City, Philippines</span>
-              </div>
-            </li>
-          </ul>
-
-          <!--
-            Contact form. There's no server, so script.js turns the message into a
-            pre-filled email (mailto:). The recipient comes from data-email.
-            TODO: Set data-email to your address, or point "action" at a form
-            service such as Formspree and remove data-email to submit normally.
-          -->
-          <form class="contact-form reveal" id="contact-form" data-email="your.email@example.com" novalidate>
-            <div class="field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary">
-              Send message
-              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
-            </button>
-            <p class="contact-form__status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       FOOTER
-       ===================================================================== -->
-  <div class="divider" aria-hidden="true"></div>
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>&copy; <span id="year">2026</span> Rodrigo B. Alderite Jr. · Built with HTML, CSS &amp; JavaScript.</p>
-      <ul class="footer__links" aria-label="Footer links">
-        <li><a href="https://github.com/potzkie1906" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/your-linkedin-handle" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:your.email@example.com">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <!-- Back-to-top button (shown by script.js after scrolling down) -->
-  <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">
-    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up" /></svg>
-  </a>
-
-  <!-- Custom cursor elements (only activated by script.js on mouse devices) -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-</body>
+    <!--
+      Sets the saved (or system) theme before the page paints, so there is no
+      flash of the wrong theme. The key must match src/lib/theme.ts.
+    -->
+    <script>
+      ;(function () {
+        var theme = 'dark'
+        try {
+          var saved = localStorage.getItem('portfolio-theme')
+          if (saved === 'light' || saved === 'dark') {
+            theme = saved
+          } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            theme = 'light'
+          }
+        } catch (error) {
+          /* Storage or matchMedia unavailable: keep the dark default. */
+        }
+        var root = document.documentElement
+        root.setAttribute('data-theme', theme)
+        root.style.colorScheme = theme
+        var meta = document.querySelector('meta[name="theme-color"]')
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#f6f6f3' : '#0c0f16')
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p style="padding: 24px; font-family: system-ui, sans-serif">
+        This portfolio needs JavaScript to run. Please enable it and reload the page.
+      </p>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

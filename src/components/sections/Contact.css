@@ -1,0 +1,477 @@
+.contact {
+  isolation: isolate;
+  padding-bottom: clamp(5rem, 3rem + 6vw, 8rem);
+}
+
+/* ---------- Background: one soft glow, echoing the hero ---------- */
+.contact__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.contact__glow {
+  position: absolute;
+  bottom: -38vmax;
+  left: 50%;
+  width: 90vmax;
+  height: 70vmax;
+  translate: -50% 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, var(--glow-violet), transparent),
+    radial-gradient(closest-side at 70% 40%, var(--glow-cyan), transparent);
+}
+
+/* ---------- Heading ---------- */
+.contact__header {
+  margin-bottom: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+}
+
+.contact__title {
+  --title-fade: color-mix(in srgb, var(--text) 62%, var(--blue));
+  width: fit-content;
+  padding-bottom: 0.06em;
+  font-size: clamp(3rem, 1.75rem + 5vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  background: linear-gradient(180deg, var(--text) 35%, var(--title-fade));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme='light'] .contact__title {
+  --title-fade: color-mix(in srgb, var(--text) 72%, var(--blue));
+}
+
+.contact__lead {
+  max-width: 36rem;
+  margin-top: var(--space-5);
+  font-size: var(--text-lead);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ---------- Layout ---------- */
+.contact__grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+@media (min-width: 64em) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  }
+}
+
+/* ---------- Channels: email, profiles, resume ---------- */
+.channels {
+  border-top: 1px solid var(--border);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'icon label copy'
+    'icon value copy';
+  align-items: center;
+  column-gap: 0.95rem;
+  row-gap: 0.1rem;
+  min-height: 4.75rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.channel__icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.channel__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.channel__label {
+  grid-area: label;
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+}
+
+.channel__value {
+  grid-area: value;
+  min-width: 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.channel__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: color var(--duration) var(--ease-out);
+}
+
+.channel__arrow {
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  opacity: 0.6;
+  transition:
+    translate var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .channel__link:hover {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--blue) 55%, transparent);
+    text-underline-offset: 0.22em;
+  }
+
+  .channel__link:hover .channel__arrow {
+    opacity: 1;
+    translate: 2px -2px;
+  }
+}
+
+.channel .copy {
+  grid-area: copy;
+}
+
+/* ---------- Copy button ---------- */
+.copy {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.copy__button {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-muted);
+  transition:
+    color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .copy__button:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+}
+
+.copy__icon {
+  grid-area: 1 / 1;
+  width: 1rem;
+  height: 1rem;
+  transition:
+    opacity 0.2s var(--ease-out),
+    scale 0.3s var(--ease-spring);
+}
+
+.copy__icon--done,
+.copy__button[data-state='copied'] .copy__icon--copy {
+  opacity: 0;
+  scale: 0.5;
+}
+
+.copy__button[data-state='copied'] .copy__icon--done {
+  opacity: 1;
+  scale: 1;
+  color: var(--green);
+}
+
+.copy__status {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  z-index: 2;
+  width: max-content;
+  max-width: 14rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xs);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--shadow-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.copy__status:empty {
+  opacity: 0;
+}
+
+/* ---------- Form ---------- */
+@property --form-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.contact-form {
+  --form-bg: var(--surface-solid);
+  position: relative;
+  padding: clamp(1.15rem, 0.75rem + 1.6vw, 2.1rem);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--form-bg), var(--form-bg)) padding-box,
+    linear-gradient(var(--border-strong), var(--border-strong)) border-box;
+  box-shadow: var(--shadow-lg);
+}
+
+/* While you type, the border lights up with a slowly turning gradient. */
+.contact-form:focus-within {
+  background:
+    linear-gradient(var(--form-bg), var(--form-bg)) padding-box,
+    conic-gradient(
+        from var(--form-angle),
+        var(--cyan-vivid),
+        var(--blue-vivid),
+        var(--violet-vivid),
+        color-mix(in srgb, var(--violet-vivid) 15%, var(--border-strong)),
+        var(--cyan-vivid)
+      )
+      border-box;
+  animation: form-border 6s linear infinite;
+}
+
+@keyframes form-border {
+  to {
+    --form-angle: 360deg;
+  }
+}
+
+.contact-form__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.contact-form__title {
+  font-size: var(--text-h3);
+  letter-spacing: -0.025em;
+}
+
+.contact-form__note {
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+}
+
+.contact-form__setup {
+  margin-top: var(--space-4);
+}
+
+.contact-form__grid {
+  display: grid;
+  gap: 1.15rem 1rem;
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 36em) {
+  .contact-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field[data-wide] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Fields ---------- */
+.field {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.field__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.field__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.field__count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.field :is(input, textarea) {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  caret-color: var(--cyan-vivid);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.field textarea {
+  min-height: 9.5rem;
+  resize: vertical;
+}
+
+.field :is(input, textarea)::placeholder {
+  color: var(--text-subtle);
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .field :is(input, textarea):hover {
+    border-color: color-mix(in srgb, var(--text) 32%, transparent);
+  }
+}
+
+.field :is(input, textarea):focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 24%, transparent);
+}
+
+.field[data-invalid] :is(input, textarea) {
+  border-color: var(--danger);
+}
+
+.field[data-invalid] :is(input, textarea):focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 24%, transparent);
+}
+
+/* Keep autofilled fields on-theme instead of the browser's yellow/blue. */
+.field :is(input, textarea):-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  box-shadow: 0 0 0 100px var(--bg) inset;
+}
+
+.field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--danger);
+}
+
+.field__error svg {
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-top: 0.12em;
+}
+
+/* ---------- Submit + status ---------- */
+.contact-form__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: var(--space-5);
+}
+
+.contact-form__hint {
+  flex: 1 1 16rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-subtle);
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+.status {
+  --tone: var(--blue);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-top: var(--space-4);
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 38%, transparent);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--tone) 8%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  animation: status-in 0.4s var(--ease-out);
+}
+
+.status > svg {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15em;
+  color: var(--tone);
+}
+
+.status[data-tone='success'] {
+  --tone: var(--green);
+}
+
+.status[data-tone='error'] {
+  --tone: var(--danger);
+}
+
+.status[data-tone='warning'] {
+  --tone: var(--amber);
+}
+
+.status__copy {
+  margin-left: 0.4rem;
+}
+
+.status__copy .copy__button {
+  width: 2rem;
+  height: 2rem;
+}
+
+@keyframes status-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}

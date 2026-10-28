@@ -1,0 +1,165 @@
+/*
+  Timeline drawn like a transit line: a track, a colored line that fills as
+  you scroll (--progress), and a station marker for each stop.
+*/
+.timeline {
+  --rail-x: 0.6rem;
+  --when-width: 0px;
+  position: relative;
+  display: grid;
+  gap: clamp(2.25rem, 1.75rem + 2vw, 3.5rem);
+  max-width: 62rem;
+}
+
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: calc(var(--when-width) + var(--rail-x) - 1px);
+  width: 2px;
+  border-radius: 2px;
+}
+
+/* Track */
+.timeline::before {
+  background: var(--border);
+}
+
+/* Progress */
+.timeline::after {
+  background: linear-gradient(
+    180deg,
+    var(--blue-vivid),
+    var(--violet-vivid) 40%,
+    var(--cyan-vivid) 70%,
+    var(--text-subtle)
+  );
+  transform-origin: top center;
+  scale: 1 var(--progress, 0);
+}
+
+.timeline__stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: calc(var(--rail-x) * 2 + 1.25rem) minmax(0, 1fr);
+  grid-template-areas:
+    '. when'
+    '. body';
+  row-gap: 0.4rem;
+}
+
+.timeline__marker {
+  position: absolute;
+  top: 0.3rem;
+  left: calc(var(--when-width) + var(--rail-x));
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  translate: -50% 0;
+  border: 3px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  transition:
+    border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    scale 0.4s var(--ease-spring);
+}
+
+.timeline__stop[data-passed='true'] .timeline__marker {
+  border-color: var(--route);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--route) 18%, transparent);
+  scale: 1.08;
+}
+
+.timeline__stop[data-kind='goal'] .timeline__marker {
+  border-style: dashed;
+}
+
+.timeline__when {
+  grid-area: when;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.timeline__dash {
+  color: var(--text-subtle);
+}
+
+.timeline__next {
+  color: var(--text-subtle);
+}
+
+.timeline__body {
+  grid-area: body;
+  max-width: 40rem;
+}
+
+.timeline__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--chip-color);
+}
+
+.timeline__title {
+  margin-top: 0.25rem;
+  font-size: var(--text-h3);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.timeline__place {
+  margin-top: 0.2rem;
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+}
+
+.timeline__text {
+  margin-top: var(--space-3);
+  color: var(--text-muted);
+}
+
+.timeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: var(--space-3);
+}
+
+.timeline__tags li {
+  padding: 0.12rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Wide screens: dates sit to the left of the line. */
+@media (min-width: 48em) {
+  .timeline {
+    --when-width: 11rem;
+  }
+
+  .timeline__stop {
+    grid-template-columns: var(--when-width) calc(var(--rail-x) * 2 + 1.5rem) minmax(
+        0,
+        1fr
+      );
+    grid-template-areas: 'when . body';
+    column-gap: 0;
+  }
+
+  .timeline__when {
+    justify-content: flex-end;
+    align-self: start;
+    padding-top: 0.2rem;
+    padding-right: 1.25rem;
+    text-align: right;
+  }
+}
