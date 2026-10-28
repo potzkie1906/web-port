@@ -22,14 +22,14 @@ export const timeline: TimelineEntry[] = [
     id: 'transithub',
     kind: 'project',
     color: 'violet',
-    label: 'Team project',
-    title: 'TransitHub: backend developer',
-    place: 'Java OOP class, team of four',
+    label: 'Solo project',
+    title: 'TransitHub: sole developer',
+    place: 'Java OOP class project',
     start: null, // PLACEHOLDER
     end: null, // PLACEHOLDER (or 'Present')
     description:
-      'I build the Spring Boot backend and plan the build phases for the team. The backend demonstrates abstraction, encapsulation, inheritance and polymorphism, and the Java code is defended before a panel.',
-    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+      'I build the whole app on my own: the Spring Boot backend, the React frontend and route map, and the PostgreSQL database. The backend demonstrates abstraction, encapsulation, inheritance and polymorphism, and the Java code is defended before a panel.',
+    tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
   },
   {
     id: 'lifehub',

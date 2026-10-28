@@ -17,7 +17,7 @@ export const projects: Project[] = [
     name: 'TransitHub',
     featured: true,
     status: 'in-development',
-    category: 'Team project',
+    category: 'Solo project',
     color: 'violet',
     summary:
       'A transportation management and route-mapping web app for Batangas City, centered on the Batangas Grand Terminal.',
@@ -25,13 +25,8 @@ export const projects: Project[] = [
       'Commuters need a clear picture of which buses, jeepneys and vans leave the Batangas Grand Terminal, and where they go.',
     solution:
       'A web app with a user side, an admin side and an interactive route map, built on real local route data instead of demo data.',
-    role: 'Backend developer. I build the Spring Boot API and plan the build phases, then assign them to my teammates.',
-    team: [
-      { name: 'Rodrigo B. Alderite Jr.', role: 'Backend, phase planning', isMe: true },
-      { name: 'Red Zildjian C. Sepillo', role: 'Frontend' },
-      { name: 'Kirk Em Neo Legaspi', role: 'Frontend, data gathering' },
-      { name: 'Karl Vincent Samonte', role: 'Database' },
-    ],
+    role: 'Sole developer. I build the whole app: the Spring Boot API, the React frontend and route map, and the PostgreSQL database.',
+    team: [],
     features: [
       'Separate user and admin sides',
       'Interactive route map for buses, jeepneys and vans',
@@ -46,8 +41,7 @@ export const projects: Project[] = [
     },
     stack: [
       {
-        label: 'Backend (my part)',
-        mine: true,
+        label: 'Backend',
         items: [
           'java',
           'springboot',
