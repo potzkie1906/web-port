@@ -17,8 +17,6 @@ const Str = ({ value }: { value: string }) => (
 export function CodeCard() {
   const technologies = skills.filter((skill) => skill.confirmed).length
   const inProgress = projects.filter((project) => project.status === 'in-development')
-  const transitTeam =
-    projects.find((project) => project.id === 'transithub')?.team.length ?? 0
 
   const entries: Array<{ key: string; value: ReactNode; comment?: string }> = [
     { key: 'studies', value: <Str value={site.school.program} /> },
@@ -56,15 +54,6 @@ export function CodeCard() {
           <CountUp value={inProgress.length} />
         </span>
       ),
-    },
-    {
-      key: 'teamSize',
-      value: (
-        <span className="tok-number">
-          <CountUp value={transitTeam} />
-        </span>
-      ),
-      comment: '// TransitHub',
     },
     {
       key: 'building',

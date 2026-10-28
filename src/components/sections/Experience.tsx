@@ -57,7 +57,7 @@ export function Experience() {
         <SectionHeading
           id="experience-title"
           title="The path so far."
-          intro="School, team projects, and where I’m heading next. Dates are still being filled in."
+          intro="School, projects, and where I’m heading next. Dates are still being filled in."
         />
 
         <ol ref={listRef} className="timeline list-reset" role="list">

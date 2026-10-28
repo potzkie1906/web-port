@@ -122,7 +122,7 @@ export interface Skill {
   description: string
   /** Project ids from src/data/projects.ts. */
   usedIn: string[]
-  /** false = shown in the "also in my team's stack" list instead of the main grid. */
+  /** false = shown in the separate "still learning" list instead of the main grid. */
   confirmed: boolean
 }
 

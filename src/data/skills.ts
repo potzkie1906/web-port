@@ -1,8 +1,8 @@
 /*
   Your skills. Each one says where you use it, so nothing is a vague claim.
 
-  confirmed: false  → shown in the separate "Also in the TransitHub stack" list.
-  When you've worked with one yourself, set confirmed: true and it moves into
+  confirmed: false  → shown in the separate "Still learning" list.
+  Once you're comfortable with one, set confirmed: true and it moves into
   the main grid. Delete any line you don't want to show.
 
   usedIn takes project ids from src/data/projects.ts ('transithub', 'lifehub').
@@ -11,8 +11,8 @@ import type { Skill, SkillCategory } from '../types'
 
 /** Heading and note for the list of not-yet-confirmed skills. */
 export const tentativeSkillsCopy = {
-  title: 'Also in the TransitHub stack',
-  note: 'My teammates build TransitHub’s frontend with these.',
+  title: 'Still learning',
+  note: 'Tools I’ve started using in my projects.',
 }
 
 export const skillCategories: { id: SkillCategory; label: string }[] = [
@@ -82,7 +82,7 @@ export const skills: Skill[] = [
   {
     tech: 'react',
     category: 'frontend',
-    description: 'LifeHub’s interface. TransitHub’s frontend is React too.',
+    description: 'The interfaces of LifeHub and TransitHub.',
     usedIn: ['lifehub', 'transithub'],
     confirmed: true,
   },
@@ -107,6 +107,27 @@ export const skills: Skill[] = [
     usedIn: ['lifehub'],
     confirmed: true,
   },
+  {
+    tech: 'typescript',
+    category: 'frontend',
+    description: 'TransitHub’s frontend language.',
+    usedIn: ['transithub'],
+    confirmed: true,
+  },
+  {
+    tech: 'tailwind',
+    category: 'frontend',
+    description: 'Styling for TransitHub’s frontend.',
+    usedIn: ['transithub'],
+    confirmed: true,
+  },
+  {
+    tech: 'leaflet',
+    category: 'frontend',
+    description: 'TransitHub’s interactive route map, on OpenStreetMap.',
+    usedIn: ['transithub'],
+    confirmed: true,
+  },
 
   // Tools
   {
@@ -119,14 +140,14 @@ export const skills: Skill[] = [
   {
     tech: 'git',
     category: 'tools',
-    description: 'Branches and commits for team collaboration on TransitHub.',
+    description: 'Feature branches, commits and pull requests on TransitHub.',
     usedIn: ['transithub'],
     confirmed: true,
   },
   {
     tech: 'github',
     category: 'tools',
-    description: 'Where our four-person TransitHub team coordinates.',
+    description: 'Hosts my projects; TransitHub’s changes go through pull requests.',
     usedIn: ['transithub'],
     confirmed: true,
   },
@@ -136,28 +157,5 @@ export const skills: Skill[] = [
     description: 'My editor.',
     usedIn: [],
     confirmed: true,
-  },
-
-  // Not confirmed yet: your teammates' side of TransitHub.
-  {
-    tech: 'typescript',
-    category: 'frontend',
-    description: 'TransitHub’s frontend language.',
-    usedIn: ['transithub'],
-    confirmed: false,
-  },
-  {
-    tech: 'tailwind',
-    category: 'frontend',
-    description: 'Styling for TransitHub’s frontend.',
-    usedIn: ['transithub'],
-    confirmed: false,
-  },
-  {
-    tech: 'leaflet',
-    category: 'frontend',
-    description: 'TransitHub’s interactive route map, on OpenStreetMap.',
-    usedIn: ['transithub'],
-    confirmed: false,
   },
 ]
