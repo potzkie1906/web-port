@@ -1,0 +1,10 @@
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  // Relative asset paths, so the built site works from any folder or sub-path
+  // (for example GitHub Pages at https://<username>.github.io/<repo>/).
+  base: './',
+  plugins: [react()],
+})

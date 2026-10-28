@@ -1,0 +1,253 @@
+.about__grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(3rem, 2rem + 4vw, 5.5rem);
+}
+
+@media (min-width: 64em) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+/* ---------- Story ---------- */
+.about__lead {
+  max-width: 38rem;
+  font-size: var(--text-lead);
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.about__text {
+  max-width: 38rem;
+  margin-top: var(--space-4);
+  color: var(--text-muted);
+}
+
+.about__focus {
+  display: grid;
+  gap: 0 var(--space-6);
+  margin-top: var(--space-7);
+}
+
+@media (min-width: 40em) {
+  .about__focus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.focus-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.15rem;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.focus-item__icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--blue);
+}
+
+.focus-item__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.focus-item__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.focus-item__main {
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--blue) 14%, transparent);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--blue);
+}
+
+.focus-item__text {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ---------- Photo + code card ---------- */
+.about__aside {
+  display: grid;
+  justify-items: end;
+}
+
+.profile {
+  position: relative;
+  width: min(100%, 22rem);
+  margin: 0;
+}
+
+.profile__image,
+.profile__frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.profile__frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  container-type: inline-size;
+  background:
+    radial-gradient(circle at 30% 20%, var(--glow-violet), transparent 60%),
+    radial-gradient(circle at 80% 90%, var(--glow-cyan), transparent 55%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 28px 28px,
+    var(--bg-elevated);
+}
+
+/* Outlined initials: the one place the site uses outline type. */
+.profile__initials {
+  font-family: var(--font-display);
+  font-size: 38cqi;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--text) 38%, transparent);
+}
+
+/* Sits inside the frame's top corner, clear of the code card below. */
+.profile__caption {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+}
+
+.profile__caption .placeholder {
+  background: color-mix(in srgb, var(--bg) 78%, var(--amber) 8%);
+}
+
+/* The code card overlaps the photo's lower-left corner. */
+.code-card {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  width: min(100%, 27rem);
+  margin: -7.5rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--code-bg) 92%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-lg);
+}
+
+.code-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.code-card__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.code-card__dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.code-card__file {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.code-card__code {
+  margin: 0;
+  padding: 0.9rem 0;
+  overflow-x: auto;
+  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.8125rem);
+  line-height: 1.75;
+}
+
+.code-card__code code {
+  font-size: inherit;
+}
+
+.code-card__line {
+  display: flex;
+  padding-right: 1rem;
+}
+
+.code-card__number {
+  flex: none;
+  width: 2.6rem;
+  padding-right: 0.9rem;
+  text-align: right;
+  color: color-mix(in srgb, var(--code-comment) 70%, transparent);
+  user-select: none;
+}
+
+.code-card__text {
+  white-space: pre;
+}
+
+.code-card__indent {
+  display: inline-block;
+  width: 2ch;
+}
+
+.code-card .placeholder {
+  font-size: 0.92em;
+}
+
+@media (max-width: 40em) {
+  .about__aside {
+    justify-items: stretch;
+  }
+
+  .profile {
+    width: 78%;
+    justify-self: end;
+  }
+
+  .code-card {
+    width: 100%;
+    margin-top: -4.5rem;
+  }
+
+  /* Wrap long lines instead of hiding them behind a sideways scroll. */
+  .code-card__text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}

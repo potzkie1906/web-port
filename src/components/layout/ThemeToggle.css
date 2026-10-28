@@ -1,0 +1,72 @@
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text);
+  transition:
+    background-color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out),
+    scale var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle:active {
+  scale: 0.9;
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover {
+    background: var(--surface-2);
+    border-color: var(--border-strong);
+  }
+}
+
+.theme-toggle__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  overflow: visible;
+}
+
+.theme-toggle__core,
+.theme-toggle__rays {
+  transform-origin: center;
+}
+
+/* Light theme: the sun. */
+.theme-toggle__core {
+  transition: transform 0.55s var(--ease-spring);
+}
+
+.theme-toggle__rays {
+  transition:
+    transform 0.55s var(--ease-spring),
+    opacity 0.4s var(--ease-out);
+}
+
+.theme-toggle__bite {
+  transition: transform 0.3s var(--ease-out);
+}
+
+/* Dark theme: the sun's core grows, the bite slides in → a crescent moon. */
+.theme-toggle[data-state='dark'] .theme-toggle__core {
+  transform: scale(1.7);
+  transition-duration: 0.3s;
+  transition-timing-function: var(--ease-out);
+}
+
+.theme-toggle[data-state='dark'] .theme-toggle__rays {
+  transform: rotate(-35deg) scale(0.5);
+  opacity: 0;
+  transition-duration: 0.2s;
+}
+
+.theme-toggle[data-state='dark'] .theme-toggle__bite {
+  transform: translateX(-7px);
+  transition-delay: 0.18s;
+  transition-duration: 0.45s;
+}

@@ -1,0 +1,94 @@
+/* The native cursor is hidden only while the custom one is active. */
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none;
+}
+
+.has-custom-cursor
+  :is(
+    input:not([type='checkbox']):not([type='radio']):not([type='button']):not(
+        [type='submit']
+      ),
+    textarea,
+    [contenteditable='true']
+  ) {
+  cursor: text;
+}
+
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+}
+
+/* Outer elements are moved by JavaScript; inner shapes handle state changes. */
+.cursor__ring,
+.cursor__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.cursor__ring-shape,
+.cursor__dot-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  translate: -50% -50%;
+  transition:
+    width 0.3s var(--ease-out),
+    height 0.3s var(--ease-out),
+    opacity 0.25s var(--ease-out),
+    background-color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out),
+    scale 0.2s var(--ease-out);
+}
+
+.cursor__ring-shape {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid color-mix(in srgb, var(--text) 45%, transparent);
+}
+
+.cursor__dot-shape {
+  width: 6px;
+  height: 6px;
+  background: var(--text);
+}
+
+.cursor[data-visible='false'] .cursor__ring-shape,
+.cursor[data-visible='false'] .cursor__dot-shape {
+  opacity: 0;
+}
+
+/* Over links and buttons: the ring grows and fills, the dot steps aside. */
+.cursor[data-state='link'] .cursor__ring-shape {
+  width: 54px;
+  height: 54px;
+  border-color: color-mix(in srgb, var(--blue-vivid) 70%, transparent);
+  background: color-mix(in srgb, var(--blue-vivid) 12%, transparent);
+}
+
+.cursor[data-state='link'] .cursor__dot-shape {
+  scale: 0;
+}
+
+/* Over cards: a slightly larger ring. */
+.cursor[data-state='card'] .cursor__ring-shape {
+  width: 44px;
+  height: 44px;
+  border-color: color-mix(in srgb, var(--violet-vivid) 60%, transparent);
+}
+
+/* Over text fields: hide it so the normal text cursor shows. */
+.cursor[data-state='text'] .cursor__ring-shape,
+.cursor[data-state='text'] .cursor__dot-shape {
+  opacity: 0;
+}
+
+.cursor[data-pressed='true'] .cursor__ring-shape {
+  scale: 0.82;
+}
