@@ -54,7 +54,7 @@ export const site: SiteConfig = {
   // PLACEHOLDERS: add these when you're ready to share them.
   email: null, // e.g. 'you@example.com'
   socials: {
-    github: null, // e.g. 'https://github.com/your-username'
+    github: 'https://github.com/potzkie1906',
     linkedin: null, // e.g. 'https://www.linkedin.com/in/your-name'
   },
   // Put your resume in the public folder (public/resume.pdf), then use './resume.pdf'.

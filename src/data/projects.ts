@@ -5,16 +5,15 @@
   Links and screenshots:
   - Set links.repo / links.demo to real URLs when you have them.
   - Put screenshots in public/images/projects/ and set, for example:
-    image: { src: './images/projects/transithub.png', alt: 'TransitHub route map' }
+    image: { src: './images/projects/routa.png', alt: 'Routa route map' }
     Until then, each card shows an illustration with a "Screenshot coming soon" tag.
 */
 import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
-    id: 'transithub',
-    // Called "Routa" in the project paper. Change `name` here if you rename it.
-    name: 'TransitHub',
+    id: 'routa',
+    name: 'Routa',
     featured: true,
     status: 'in-development',
     category: 'Solo project',
@@ -28,15 +27,20 @@ export const projects: Project[] = [
     role: 'Sole developer. I build the whole app: the Spring Boot API, the React frontend and route map, and the PostgreSQL database.',
     team: [],
     features: [
-      'Separate user and admin sides',
-      'Interactive route map for buses, jeepneys and vans',
+      'Interactive map of bus, jeepney and van routes, with stops and filters',
+      'Route lines drawn along the real roads with OSRM',
+      'Search for direct routes between two places, fastest or cheapest first',
+      'Fares, schedules and stops in order for every route',
+      'Service alerts',
+      'Sign-in to save favorite routes and report wrong or outdated info',
+      'Admin dashboard for routes, stops, transport, alerts, users and reports',
       'Real local route data, not demo data',
-      'Dark map style made with CSS only, on OpenStreetMap',
+      'Soft map style made with CSS filters only, on OpenStreetMap',
     ],
     checklists: [],
     context: {
       title: 'Java OOP class project',
-      text: 'The Java backend is built to demonstrate the four pillars of object-oriented programming, and the Java code is defended before a panel.',
+      text: 'The Java 21 backend is built to demonstrate the four pillars of object-oriented programming, and the Java code is defended before a panel.',
       tags: ['Abstraction', 'Encapsulation', 'Inheritance', 'Polymorphism'],
     },
     stack: [
@@ -55,10 +59,23 @@ export const projects: Project[] = [
       },
       {
         label: 'Frontend',
-        items: ['react', 'typescript', 'tailwind', 'leaflet', 'openstreetmap'],
+        items: [
+          'react',
+          'typescript',
+          'vite',
+          'tailwind',
+          'reactrouter',
+          'axios',
+          'leaflet',
+          'openstreetmap',
+        ],
+      },
+      {
+        label: 'Testing',
+        items: ['junit', 'vitest'],
       },
     ],
-    links: { repo: null, demo: null },
+    links: { repo: 'https://github.com/potzkie1906/Routa', demo: null },
     image: null,
     preview: 'transit',
   },
@@ -102,11 +119,15 @@ export const projects: Project[] = [
     context: null,
     stack: [
       {
-        label: 'Stack',
-        items: ['react', 'javascript', 'nodejs', 'express', 'postgresql'],
+        label: 'Backend',
+        items: ['nodejs', 'express', 'jwt', 'bcrypt', 'postgresql'],
+      },
+      {
+        label: 'Frontend',
+        items: ['react', 'javascript', 'vite', 'tailwind', 'reactrouter', 'axios'],
       },
     ],
-    links: { repo: null, demo: null },
+    links: { repo: 'https://github.com/potzkie1906/lifehub', demo: null },
     image: null,
     preview: 'lifehub',
   },

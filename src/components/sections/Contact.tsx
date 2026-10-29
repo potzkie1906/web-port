@@ -17,8 +17,8 @@ export function Contact() {
               Let’s talk.
             </h2>
             <p className="contact__lead">
-              Questions about TransitHub or LifeHub, an idea for a project, or feedback on
-              my work: send a message and I’ll get back to you.
+              Questions about Routa or LifeHub, an idea for a project, or feedback on my
+              work: send a message and I’ll get back to you.
             </p>
           </Reveal>
           <Reveal delay={90}>

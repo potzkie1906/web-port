@@ -5,7 +5,7 @@
   Once you're comfortable with one, set confirmed: true and it moves into
   the main grid. Delete any line you don't want to show.
 
-  usedIn takes project ids from src/data/projects.ts ('transithub', 'lifehub').
+  usedIn takes project ids from src/data/projects.ts ('routa', 'lifehub').
 */
 import type { Skill, SkillCategory } from '../types'
 
@@ -28,16 +28,16 @@ export const skills: Skill[] = [
     tech: 'springboot',
     category: 'backend',
     description:
-      'TransitHub’s API, built with Maven, Spring Security with JWT, and JPA. My main area.',
-    usedIn: ['transithub'],
+      'Routa’s API: Maven, Spring Security with JWT, JPA, and JUnit 5 tests. My main area.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
     tech: 'java',
     category: 'backend',
     description:
-      'TransitHub’s backend, written to show abstraction, encapsulation, inheritance and polymorphism.',
-    usedIn: ['transithub'],
+      'Routa’s backend, written in Java 21 to show abstraction, encapsulation, inheritance and polymorphism.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
@@ -58,7 +58,7 @@ export const skills: Skill[] = [
     tech: 'rest',
     category: 'backend',
     description: 'How the frontend and backend talk in both projects.',
-    usedIn: ['transithub', 'lifehub'],
+    usedIn: ['routa', 'lifehub'],
     confirmed: true,
   },
 
@@ -66,15 +66,15 @@ export const skills: Skill[] = [
   {
     tech: 'postgresql',
     category: 'database',
-    description: 'The database behind both TransitHub and LifeHub.',
-    usedIn: ['transithub', 'lifehub'],
+    description: 'The database behind both Routa and LifeHub.',
+    usedIn: ['routa', 'lifehub'],
     confirmed: true,
   },
   {
     tech: 'sql',
     category: 'database',
     description: 'Querying and shaping data in both projects.',
-    usedIn: ['transithub', 'lifehub'],
+    usedIn: ['routa', 'lifehub'],
     confirmed: true,
   },
 
@@ -82,8 +82,8 @@ export const skills: Skill[] = [
   {
     tech: 'react',
     category: 'frontend',
-    description: 'The interfaces of LifeHub and TransitHub.',
-    usedIn: ['lifehub', 'transithub'],
+    description: 'The interfaces of LifeHub and Routa.',
+    usedIn: ['lifehub', 'routa'],
     confirmed: true,
   },
   {
@@ -110,22 +110,22 @@ export const skills: Skill[] = [
   {
     tech: 'typescript',
     category: 'frontend',
-    description: 'TransitHub’s frontend language.',
-    usedIn: ['transithub'],
+    description: 'Routa’s frontend language, tested with Vitest.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
     tech: 'tailwind',
     category: 'frontend',
-    description: 'Styling for TransitHub’s frontend.',
-    usedIn: ['transithub'],
+    description: 'Styling for the Routa and LifeHub frontends.',
+    usedIn: ['routa', 'lifehub'],
     confirmed: true,
   },
   {
     tech: 'leaflet',
     category: 'frontend',
-    description: 'TransitHub’s interactive route map, on OpenStreetMap.',
-    usedIn: ['transithub'],
+    description: 'Routa’s interactive route map, on OpenStreetMap.',
+    usedIn: ['routa'],
     confirmed: true,
   },
 
@@ -133,22 +133,22 @@ export const skills: Skill[] = [
   {
     tech: 'docker',
     category: 'tools',
-    description: 'Runs TransitHub’s PostgreSQL database in a container.',
-    usedIn: ['transithub'],
+    description: 'Runs Routa’s PostgreSQL database in a container.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
     tech: 'git',
     category: 'tools',
-    description: 'Feature branches, commits and pull requests on TransitHub.',
-    usedIn: ['transithub'],
+    description: 'Feature branches, commits and pull requests on Routa.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
     tech: 'github',
     category: 'tools',
-    description: 'Hosts my projects; TransitHub’s changes go through pull requests.',
-    usedIn: ['transithub'],
+    description: 'Hosts my projects; Routa’s changes go through pull requests.',
+    usedIn: ['routa'],
     confirmed: true,
   },
   {
