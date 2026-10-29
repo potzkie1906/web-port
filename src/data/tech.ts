@@ -4,9 +4,10 @@
   To add one: add an entry here, then use its id (e.g. 'vite') elsewhere.
 */
 import { FaCss3Alt, FaJava } from 'react-icons/fa6'
-import { LuDatabase, LuLayers, LuNetwork } from 'react-icons/lu'
+import { LuDatabase, LuKeyRound, LuLayers, LuNetwork } from 'react-icons/lu'
 import {
   SiApachemaven,
+  SiAxios,
   SiDocker,
   SiExpress,
   SiGit,
@@ -14,16 +15,20 @@ import {
   SiHtml5,
   SiJavascript,
   SiJsonwebtokens,
+  SiJunit5,
   SiLeaflet,
   SiNodedotjs,
   SiOpenstreetmap,
   SiPostgresql,
   SiPython,
   SiReact,
+  SiReactrouter,
   SiSpringboot,
   SiSpringsecurity,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
+  SiVitest,
 } from 'react-icons/si'
 import { TbBrandVscode } from 'react-icons/tb'
 import type { Tech } from '../types'
@@ -44,12 +49,20 @@ const definitions = {
     colorDark: '#4f94e2',
   },
   react: { name: 'React', icon: SiReact, color: '#087ea4', colorDark: '#61dafb' },
+  vite: { name: 'Vite', icon: SiVite, color: '#646cff', colorDark: '#8f95ff' },
   tailwind: {
     name: 'Tailwind CSS',
     icon: SiTailwindcss,
     color: '#0891b2',
     colorDark: '#38bdf8',
   },
+  reactrouter: {
+    name: 'React Router',
+    icon: SiReactrouter,
+    color: '#ca4245',
+    colorDark: '#f26b72',
+  },
+  axios: { name: 'Axios', icon: SiAxios, color: '#5a29e4', colorDark: '#9b7bf5' },
   leaflet: { name: 'Leaflet', icon: SiLeaflet, color: '#199900', colorDark: '#4cc23a' },
   openstreetmap: {
     name: 'OpenStreetMap',
@@ -71,8 +84,11 @@ const definitions = {
     colorDark: '#7bc152',
   },
   jwt: { name: 'JWT', icon: SiJsonwebtokens, color: '#1f2328', colorDark: '#e6e8ec' },
+  bcrypt: { name: 'bcrypt', icon: LuKeyRound, color: '#5b6377', colorDark: '#b4bccc' },
   jpa: { name: 'JPA', icon: LuLayers, color: '#5b6377', colorDark: '#b4bccc' },
   maven: { name: 'Maven', icon: SiApachemaven, color: '#c71a36', colorDark: '#ec5a72' },
+  junit: { name: 'JUnit 5', icon: SiJunit5, color: '#1f8c55', colorDark: '#3fc27e' },
+  vitest: { name: 'Vitest', icon: SiVitest, color: '#5c8a10', colorDark: '#a3d14b' },
   nodejs: { name: 'Node.js', icon: SiNodedotjs, color: '#4d8c3f', colorDark: '#6cc24a' },
   express: { name: 'Express', icon: SiExpress, color: '#1f2328', colorDark: '#e6e8ec' },
   rest: { name: 'REST APIs', icon: LuNetwork, color: '#2f4fe0', colorDark: '#8fa4ff' },

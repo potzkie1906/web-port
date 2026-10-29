@@ -155,7 +155,7 @@
   background: color-mix(in srgb, var(--amber) 9%, transparent);
 }
 
-/* Project chips: violet = TransitHub, cyan = LifeHub. */
+/* Project chips: violet = Routa, cyan = LifeHub. */
 .route-chip {
   --chip-color: var(--blue);
   display: inline-flex;

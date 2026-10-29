@@ -3,7 +3,7 @@ import type { TechId } from '../data/tech'
 
 export type { TechId }
 
-/** Colors that carry meaning across the site: violet = TransitHub, cyan = LifeHub. */
+/** Colors that carry meaning across the site: violet = Routa, cyan = LifeHub. */
 export type RouteColor = 'violet' | 'cyan' | 'blue'
 
 export type SectionId =
@@ -90,7 +90,7 @@ export interface ProjectChecklist {
 }
 
 export interface Project {
-  /** Used for the page anchor, e.g. "transithub" → #project-transithub. */
+  /** Used for the page anchor, e.g. "routa" → #project-routa. */
   id: string
   name: string
   featured: boolean

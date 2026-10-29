@@ -2,7 +2,7 @@
 
 My personal portfolio: a one-page website built with **React**, **TypeScript** and **Vite**.
 It has a dark and a light theme, a typing animation, floating technology logos, a custom cursor,
-my projects (TransitHub and LifeHub), a timeline and a contact form.
+my projects (Routa and LifeHub), a timeline and a contact form.
 
 ---
 
@@ -67,20 +67,19 @@ email: 'rodrigo@example.com',
 
 ## 3. Placeholders still to fill in
 
-| Placeholder                       | Where                                               |
-| --------------------------------- | --------------------------------------------------- |
-| Email                             | `email` in `src/config/site.ts`                     |
-| GitHub profile                    | `socials.github` in `src/config/site.ts`            |
-| LinkedIn profile                  | `socials.linkedin` in `src/config/site.ts`          |
-| Resume link                       | `resumeUrl` in `src/config/site.ts` (see below)     |
-| Profile photo                     | `profileImage` in `src/config/site.ts` (see below)  |
-| Availability badge                | `availability` in `src/config/site.ts`              |
-| Year level                        | `yearLevel` in `src/config/site.ts`                 |
-| Location (optional, hidden now)   | `location` in `src/config/site.ts`                  |
-| Timeline dates and next goal      | `start`, `end`, `title` in `src/data/experience.ts` |
-| Repository and live demo links    | `links` of each project in `src/data/projects.ts`   |
-| Project screenshots               | `image` of each project in `src/data/projects.ts`   |
-| SafeTrack, Lost and Found details | their entries in `src/data/projects.ts` (drafts)    |
+| Placeholder                       | Where                                              |
+| --------------------------------- | -------------------------------------------------- |
+| Email                             | `email` in `src/config/site.ts`                    |
+| LinkedIn profile                  | `socials.linkedin` in `src/config/site.ts`         |
+| Resume link                       | `resumeUrl` in `src/config/site.ts` (see below)    |
+| Profile photo                     | `profileImage` in `src/config/site.ts` (see below) |
+| Availability badge                | `availability` in `src/config/site.ts`             |
+| Year level                        | `yearLevel` in `src/config/site.ts`                |
+| Location (optional, hidden now)   | `location` in `src/config/site.ts`                 |
+| School start year and next goal   | `start`, `title` in `src/data/experience.ts`       |
+| Live demo links                   | `links.demo` in `src/data/projects.ts`             |
+| Project screenshots               | `image` of each project in `src/data/projects.ts`  |
+| SafeTrack, Lost and Found details | their entries in `src/data/projects.ts` (drafts)   |
 
 ### Add your photo
 
@@ -102,7 +101,7 @@ Put them in `public/images/projects/` (16:10 images such as 1280 × 800 look bes
 `src/data/projects.ts`:
 
 ```ts
-image: { src: './images/projects/transithub.png', alt: 'TransitHub route map of Batangas City' },
+image: { src: './images/projects/routa.png', alt: 'Routa route map of Batangas City' },
 ```
 
 Until then, each card shows a drawn illustration with a "Screenshot coming soon" tag.

@@ -16,7 +16,7 @@ export const about = {
   title: 'An IT student who builds the whole stack.',
   lead: 'I’m Rodrigo B. Alderite Jr., an Information Technology student at Batangas State University’s Alangilan campus, in the College of Informatics and Computing Sciences.',
   paragraphs: [
-    'Right now I’m learning by building two real projects. TransitHub, a route-mapping app for Batangas City, I build on my own: the Spring Boot API, the React frontend with its route map, and the PostgreSQL database. LifeHub, my capstone, is a full-stack dashboard for student life, built with React, Node.js and PostgreSQL.',
+    'Right now I’m learning by building two real projects. Routa, a route-mapping app for Batangas City, I build on my own: the Spring Boot API, the React frontend with its route map, and the PostgreSQL database. LifeHub, my capstone, is a full-stack dashboard for student life, built with React, Node.js and PostgreSQL.',
     'My main area is the backend: REST APIs, authentication and data. I’m also interested in frontend work, databases and UI/UX, because a good app needs all of them working together.',
   ],
   focusAreas: [
@@ -29,12 +29,12 @@ export const about = {
     {
       icon: LuDatabase,
       title: 'Databases',
-      text: 'PostgreSQL in both projects, running in Docker for TransitHub.',
+      text: 'PostgreSQL in both projects, running in Docker for Routa.',
     },
     {
       icon: LuMonitorSmartphone,
       title: 'Frontend',
-      text: 'React interfaces, like LifeHub’s dashboard and TransitHub’s route map.',
+      text: 'React interfaces, like LifeHub’s dashboard and Routa’s route map.',
     },
     {
       icon: LuPalette,

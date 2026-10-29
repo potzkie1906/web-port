@@ -1,7 +1,7 @@
 /*
   Your timeline, oldest first. Every `null` shows a clearly marked placeholder.
   Fill in dates like '2024' or 'Aug 2025'. kind: 'education' | 'project' | 'goal'.
-  color: 'violet' (TransitHub), 'cyan' (LifeHub), 'blue' or 'neutral'.
+  color: 'violet' (Routa), 'cyan' (LifeHub), 'blue' or 'neutral'.
 */
 import type { TimelineEntry } from '../types'
 
@@ -19,30 +19,30 @@ export const timeline: TimelineEntry[] = [
     tags: [],
   },
   {
-    id: 'transithub',
-    kind: 'project',
-    color: 'violet',
-    label: 'Solo project',
-    title: 'TransitHub: sole developer',
-    place: 'Java OOP class project',
-    start: null, // PLACEHOLDER
-    end: null, // PLACEHOLDER (or 'Present')
-    description:
-      'I build the whole app on my own: the Spring Boot backend, the React frontend and route map, and the PostgreSQL database. The backend demonstrates abstraction, encapsulation, inheritance and polymorphism, and the Java code is defended before a panel.',
-    tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
-  },
-  {
     id: 'lifehub',
     kind: 'project',
     color: 'cyan',
     label: 'Capstone project',
     title: 'LifeHub: capstone, in progress',
     place: 'Full-stack student management system',
-    start: null, // PLACEHOLDER
-    end: null, // PLACEHOLDER (or 'Present')
+    start: 'Sep 2026',
+    end: 'Present',
     description:
       'Built with React, Node.js and Express, and PostgreSQL. Accounts, subjects, assignments, tasks and budgets work; schedule, notes and reminders are next.',
     tags: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+  },
+  {
+    id: 'routa',
+    kind: 'project',
+    color: 'violet',
+    label: 'Solo project',
+    title: 'Routa: sole developer',
+    place: 'Java OOP class project',
+    start: 'Oct 2026',
+    end: 'Present',
+    description:
+      'I build the whole app on my own: the Spring Boot backend, the React frontend and route map, and the PostgreSQL database. The backend demonstrates abstraction, encapsulation, inheritance and polymorphism, and the Java code is defended before a panel.',
+    tags: ['Java 21', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
   },
   {
     id: 'next',
@@ -55,7 +55,7 @@ export const timeline: TimelineEntry[] = [
     end: null,
     // Your near-term plans from the project notes. Rewrite it any time.
     description:
-      'Short term: finish LifeHub’s schedule, notes and reminders, and load real Batangas City routes into TransitHub.',
+      'Short term: finish LifeHub’s schedule, notes and reminders, and load real Batangas City routes into Routa.',
     tags: [],
   },
 ]
